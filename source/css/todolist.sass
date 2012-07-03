@@ -1,0 +1,155 @@
+@import "compass/css3"
+@import "compass/utilities"
+@import "compass/layout/stretching"
+@import "compass/css3/transform"
+@import "compass/css3/transition"
+
+body
+  background: #aaa
+  font: 1.6em/1.5em Verdana, sans-serif
+
+@mixin font-small
+  font-size: 10px
+  line-height: 10px
+
+@mixin font-middle
+  font-size: 20px
+  line-height: 20px
+
+@mixin font-large
+  font-size: 40px
+  line-height: 40px
+
+@mixin no-select
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  outline: 0
+
+$c1: #F2F8E5
+$c2: #0ACF00
+$c3: #DBEEB0
+$c4: #699B00
+
+
+::selection
+  background: #ccc
+  color: black
+  text-shadow: none
+
+.todolist
+  width: 500px
+  margin: auto
+  padding: 0
+
+  background: #fff
+  +single-box-shadow
+  +border-bottom-radius(10px)
+
+  +font-middle
+
+  input
+    width: 300px
+    padding: 1px 0
+    margin: 0
+    border: 1px solid #ccc
+    +font-middle
+
+  > .title
+    margin: 0 20px
+    padding: 20px 0 0 
+    text-align: center
+
+    +font-large
+    font-weight: bold
+
+
+  .input
+    margin: 20px
+    text-align: center
+    #input
+      width: 100%
+
+  .tasks
+    margin: 20px
+
+    .task
+      margin: 0 0 10px
+      padding: 0 0 10px
+      border-bottom: 1px solid #ccc
+      position: relative
+      &.done
+        .name
+          text-decoration: line-through
+          color: #ccc
+
+      .checkbox, .name
+        display: inline-block
+
+      .name
+        width: 400px
+
+      .checkbox
+        width: 10px
+        height: 10px
+        border: 1px solid #ccc
+        background: #fff
+        &:hover
+          background: $c3
+          cursor: pointer
+        &.on
+          background: $c2
+
+      .edit
+        display: none
+        width: 400px
+
+      &.editing
+        .name
+          display: none
+        .edit
+          display: inline-block
+
+      .delete
+        display: none
+      &:hover
+        .delete
+          display: block
+
+      .delete
+        position: absolute
+        top: 0px
+        right: 0px
+
+        padding: 0 5px
+        font-size: 14px
+        +border-radius(4px)
+        color: #aaa
+        background: #eee
+        cursor: pointer
+        &:active
+          top: 1px
+
+
+  .info
+    padding: 20px
+    background: $c1
+    +border-bottom-radius(10px)
+    border-top: 1px solid #eee
+    .remain
+      float: left
+    .clear
+      float: right
+      background: $c3
+      padding: 4px 10px 10px
+      +border-radius(10px)
+      +no-select
+      &:hover
+        background: $c2
+        cursor: pointer
+      &:active
+        position: relative
+        top: 3px

@@ -18,6 +18,7 @@
     %meta{content: "width=device-width,initial-scale=1", name: "viewport"}
     / Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons
     %link{href: "css/style.css", rel: "stylesheet"}
+    %link{href: "css/todolist.css", rel: "stylesheet"}
     / 
       More ideas for your <head> here: h5bp.com/d/head-Tips
       All JavaScript at the bottom, except this Modernizr build incl. Respond.js
@@ -31,22 +32,23 @@
       #main{role: "main"}
         = yield
       %footer
-        halida, 2012
 
     / 
       JavaScript at the bottom for fast page loading
       Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
     %script{src: "//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"}
     <script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.2.min.js"><\/script>')</script>
-        
+
     / scripts concatenated and minified via build script
-    %script{defer: "", src: "js/plugins.js"}
-    %script{defer: "", src: "js/libs/spine/spine.js"}
+    %script{src: "js/plugins.js"}
+    %script{src: "js/libs/spine/spine.js"}
     / 
       Optional Spine extensions
-      <script defer src="js/libs/spine/local.js"></script>
-      <script defer src="js/libs/spine/routes.js"></script>
-    %script{defer: "", src: "js/script.js"}
+    <script src="js/libs/spine/local.js"></script>
+    <script src="js/libs/spine/jquery.tmpl.js"></script>
+    %script{src: "js/script.js"}
+
+    = yield_content :scripts
 
 
     / Change UA-XXXXX-X to be your site's ID

@@ -1,5 +1,30 @@
-xxx
+.todolist
+  .title TODOLIST
 
-fdsa
+  .input
+    %input#input(type="text")
+  .tasks
 
-fdjsklfds
+  .info
+    .remain
+      %span.num 0 
+      left
+    .clear Clear Done
+    .clearfix
+
+- content_for :scripts do
+  = javascript_include_tag "todolist"
+
+  %script#taskTemplate(type="text/x-jquery-tmpl")
+    %div{class: "task \{\{if done\}\}done\{\{/if\}\}"}
+      %div{class: "checkbox \{\{if done\}\}on\{\{/if\}\}"}
+      .name ${name}
+      %input.edit{type: "text", value: "${name}"}
+      .delete ✖
+
+  :coffeescript
+  
+    $ ->
+        app = new TaskApp el: ".todolist"
+        Task.create name: "welcome to my todo!", done: false
+        Task.create name: "double click me to edit", done: false
