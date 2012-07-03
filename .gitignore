@@ -1,0 +1,10 @@
+*.orig
+/log
+/tmp
+*~
+*.bak
+
+tags
+*.swp
+
+
