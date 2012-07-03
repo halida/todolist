@@ -8,6 +8,7 @@ body
   background: #aaa
   font: 1.6em/1.5em Verdana, sans-serif
 
+
 @mixin font-small
   font-size: 10px
   line-height: 10px
@@ -135,10 +136,19 @@ $c4: #699B00
 
 
   .info
+    position: relative
     padding: 20px
     background: $c1
     +border-bottom-radius(10px)
     border-top: 1px solid #eee
+    .desc
+      position: absolute
+      left: 20px
+      bottom: 10px
+      color: #ccc
+      font-size: 10px
+      a
+        color: #ccc
     .remain
       float: left
     .clear
