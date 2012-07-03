@@ -33,7 +33,7 @@ class TaskApp extends Spine.Controller
         Task.bind "destroy", @checkRemain
         Task.bind "create", @checkRemain
         Task.bind "update", @checkRemain
-
+        Task.loadLocal()
         @input.focus()
 
     check_input_keypress: (e)->
@@ -50,7 +50,7 @@ class TaskApp extends Spine.Controller
         @tasks.prepend(el)
 
     addAll: =>
-        @tasks.clear()
+        @tasks.html("")
         Task.each @addOne
 
     checkRemain: =>
